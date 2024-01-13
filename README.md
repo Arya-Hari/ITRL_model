@@ -13,33 +13,34 @@ probably proofread and complete it, then remove this comment. -->
 
 # ITRLTrained
 
-This model is a fine-tuned version of [Salesforce/codet5-base](https://huggingface.co/Salesforce/codet5-base) on an unknown dataset.
-It achieves the following results on the evaluation set:
+This model is a fine-tuned version of [Salesforce/codet5-base](https://huggingface.co/Salesforce/codet5-base) on [ITRLDataset](https://huggingface.co/datasets/AshArya/ITRLDataset)
 
 
 ## Model description
 
-More information needed
+The model is a fine-tuned version of the CodeT5-base model by Salesforce. It has been fine-tuned on a custom dataset with over 1200 entries.
 
 ## Intended uses & limitations
 
-More information needed
+Its intended use is to act as a text-to-code generator. The Natural Language (NL) input is in the form of algorithmic statements and the model generates 1-2 lines of Python code corresponding to the input.
 
 ## Training and evaluation data
 
-AshArya/ITRLDataset
+[AshArya/ITRLDataset](https://huggingface.co/datasets/AshArya/ITRLDataset)
 
 ## Training procedure
+
+Fine-tuning of [Salesforce/codet5-base](https://huggingface.co/Salesforce/codet5-base) using PyTorch and Transformers with custom training arguments and a custom training loop.
 
 ### Training hyperparameters
 
 The following hyperparameters were used during training:
-- optimizer: None
+- optimizer: XLA
 - training_precision: float32
 
 ### Training results
 
-
+The model achieves high accuracy during human evaluation. It achieves a ROUGE-L score of 0.359662899235267 and a chrF score of 9.637061227631952 after the fine-tuning. The original model achieves a score of 0.06735368389780155 and 3.021597905833814 respectively. 
 
 ### Framework versions
 
